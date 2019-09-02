@@ -208,7 +208,7 @@ public class ultimateCipher : MonoBehaviour {
         submitText.text = "1";
         //Generating random word
         answer = wordList[UnityEngine.Random.Range(0, wordList.Length)].ToUpper();
-        Debug.LogFormat("[Ultimate Cipher #{0}] Generated Word: {1}", moduleId, answer);
+        Debug.LogFormat("[Red Cipher #{0}] Generated Word: {1}", moduleId, answer);
        
         pages = new string[2][];
         pages[0] = new string[3];
@@ -336,14 +336,14 @@ public class ultimateCipher : MonoBehaviour {
 
         
         
-        Debug.LogFormat("[Ultimate Cipher #{0}] Trisquare Key 1: {1}", moduleId, kw1);
-        Debug.LogFormat("[Ultimate Cipher #{0}] Trisquare Key 2: {1}", moduleId, kw2);
-        Debug.LogFormat("[Ultimate Cipher #{0}] Trisquare Key 3: {1}", moduleId, kw3);
+        Debug.LogFormat("[Red Cipher #{0}] Trisquare Key 1: {1}", moduleId, kw1);
+        Debug.LogFormat("[Red Cipher #{0}] Trisquare Key 2: {1}", moduleId, kw2);
+        Debug.LogFormat("[Red Cipher #{0}] Trisquare Key 3: {1}", moduleId, kw3);
         Debug.LogFormat("[Red Cipher #{0}] Begin Trisquare Encryption", moduleId);
         encrypt = TrisquareEnc(encrypt, kw1, kw2, kw3);
 
-        Debug.LogFormat("[Ultimate Cipher #{0}] CM Bifid Key 1: {1}", moduleId, kw1);
-        Debug.LogFormat("[Ultimate Cipher #{0}] CM Bifid Key 2: {1}", moduleId, kw2);
+        Debug.LogFormat("[Red Cipher #{0}] CM Bifid Key 1: {1}", moduleId, kw1);
+        Debug.LogFormat("[Red Cipher #{0}] CM Bifid Key 2: {1}", moduleId, kw2);
         Debug.LogFormat("[Red Cipher #{0}] Begin CM Bifid Encryption", moduleId);
         encrypt = CMBifidEnc(encrypt, kw1, kw2);
 
@@ -380,12 +380,12 @@ public class ultimateCipher : MonoBehaviour {
             cols = cols + "" + (n1 % 5);
         }
         string nums = rows + "" + cols;
-        Debug.LogFormat("[Ultimate Cipher #{0}] Rows|Columns: {1}", moduleId, rows + "|" + cols);
+        Debug.LogFormat("[Red Cipher #{0}] Rows|Columns: {1}", moduleId, rows + "|" + cols);
       
         for (int ii = 0; ii < 6; ii++)
         {
             encrypt = encrypt + "" + kw2[((nums[ii * 2] - '0') * 5) + (nums[(ii * 2) + 1] - '0')];
-            Debug.LogFormat("[Ultimate Cipher #{0}] {1} -> {2}", moduleId, letters[ii], encrypt[ii]);
+            Debug.LogFormat("[Red Cipher #{0}] {1} -> {2}", moduleId, letters[ii], encrypt[ii]);
         }
         return encrypt;
     }
@@ -398,7 +398,7 @@ public class ultimateCipher : MonoBehaviour {
             int n2 = kw2.IndexOf(word[gg + 1]);
             gg++;
             encrypt = encrypt + "" + kw3[((n1 / 5) * 5) + (n2 % 5)] + "" + kw3[(n1 % 5) + ((n2 / 5) * 5)];
-            Debug.LogFormat("[Ultimate Cipher #{0}] {1} -> {2}", moduleId, word[gg - 1] + "" + word[gg], encrypt[gg - 1] + "" + encrypt[gg]);
+            Debug.LogFormat("[Red Cipher #{0}] {1} -> {2}", moduleId, word[gg - 1] + "" + word[gg], encrypt[gg - 1] + "" + encrypt[gg]);
         }
         return encrypt;
     }
@@ -470,7 +470,7 @@ public class ultimateCipher : MonoBehaviour {
                 col2 = col3;
             }
             encrypt = encrypt + "" + matrix[row1][col1] + "" + matrix[row2][col2];
-            Debug.LogFormat("[Ultimate Cipher #{0}] {1} -> {2}", moduleId, word[ee - 1] + "" + word[ee], encrypt[ee - 1] + "" + encrypt[ee]);
+            Debug.LogFormat("[Red Cipher #{0}] {1} -> {2}", moduleId, word[ee - 1] + "" + word[ee], encrypt[ee - 1] + "" + encrypt[ee]);
         }
         return encrypt;
     }

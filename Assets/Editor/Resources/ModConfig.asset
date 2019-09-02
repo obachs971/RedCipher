@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'The red cipher, consisting of 5x5 matrices using 25 letter alphabets.
 
 
-    Github: '
+    Github: https://github.com/obachs971/RedCipher'
   version: 1.0.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 4b34c0ececb38e84d9e842e4f1fd5f91, type: 3}
