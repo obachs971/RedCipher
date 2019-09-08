@@ -15,34 +15,7 @@ public class ultimateCipher : MonoBehaviour {
     public KMAudio Audio;
     public TextMesh submitText;
    
-    private string[] AmatrixWordList =
-		{
-				"ABORT",	
-				"BOUNCE",	
-				"CODE",	
-				"DOUBLE",	
-				"EVIL",	
-				"FALSE",	
-				"GOLF",	
-				"HANDLE",	
-				"IDEAL",	
-				"JOWLS",	
-				"KING",	
-				"LENGTH",	
-				"MONK",	
-				"NIGHT",	
-				"OBTAIN",	
-				"PERSON",	
-				"QUILT",	
-				"RUST",	
-				"STOMP",	
-				"TANK",	
-				"UNTIL",	
-				"VECTOR",	
-				"WALK",	
-				"XYLO",	
-				"ZEBRA"
-		};
+    
     private string[] matrixWordList =
       {
                 "ACID",
@@ -274,31 +247,32 @@ public class ultimateCipher : MonoBehaviour {
         string kw1;
         string kw2;
         string kw3;
-        if (Bomb.GetPortCount() == 0)
+        int numports = Bomb.GetPortCount();
+        if (numports == 0)
         {
             kw1 = words[0].Replace('J', 'I');
             kw2 = words[1].Replace('J', 'I');
             kw3 = words[2].Replace('J', 'I');
         }
-        else if (Bomb.GetPortCount() == 1)
+        else if (numports == 1)
         {
             kw1 = words[0].Replace('J', 'I');
             kw2 = words[2].Replace('J', 'I');
             kw3 = words[1].Replace('J', 'I');
         }
-        else if (Bomb.GetPortCount() == 2)
+        else if (numports == 2)
         {
             kw1 = words[1].Replace('J', 'I');
             kw2 = words[0].Replace('J', 'I');
             kw3 = words[2].Replace('J', 'I');
         }
-        else if (Bomb.GetPortCount() == 3)
+        else if (numports == 3)
         {
             kw1 = words[1].Replace('J', 'I');
             kw2 = words[2].Replace('J', 'I');
             kw3 = words[0].Replace('J', 'I');
         }
-        else if (Bomb.GetPortCount() == 4)
+        else if (numports == 4)
         {
             kw1 = words[2].Replace('J', 'I');
             kw2 = words[0].Replace('J', 'I');
@@ -363,7 +337,7 @@ public class ultimateCipher : MonoBehaviour {
         }
         if(flag2)
         {
-            pages[0][1] = "ABCDEFGHIKLMNOPQRSTUVWXYZ"[UnityEngine.Random.Range(0, 26)].ToString();
+            pages[0][1] = "ABCDEFGHIKLMNOPQRSTUVWXYZ"[UnityEngine.Random.Range(0, 25)].ToString();
         }
         return encrypt;
     }

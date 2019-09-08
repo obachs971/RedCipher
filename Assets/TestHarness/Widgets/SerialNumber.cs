@@ -46,7 +46,6 @@ public class SerialNumber : Widget
 		{
 			widget.serial = sn;
 		}
-
 		widget.serialTextMesh.text = widget.serial;
 
 		Debug.Log("Serial: " + widget.serial);
