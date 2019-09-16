@@ -562,26 +562,29 @@ public class ultimateCipher : MonoBehaviour {
         
         if(command.EqualsIgnoreCase("right") || command.EqualsIgnoreCase("r"))
         {
-            right(rightArrow);
-            yield return new WaitForSeconds(0.1f);
             yield return null;
+            rightArrow.OnInteract();
+            yield return new WaitForSeconds(0.1f);
+            
         }
         if (command.EqualsIgnoreCase("left") || command.EqualsIgnoreCase("l"))
         {
-            left(leftArrow);
-            yield return new WaitForSeconds(0.1f);
             yield return null;
+            leftArrow.OnInteract();
+            yield return new WaitForSeconds(0.1f);
+   
         }
         string[] split = command.ToUpperInvariant().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
         if (split.Length != 2 || !split[0].Equals("SUBMIT") || split[1].Length != 6) yield break;
         int[] buttons = split[1].Select(getPositionFromChar).ToArray();
         if (buttons.Any(x => x < 0)) yield break;
+
         yield return null;
 
         yield return new WaitForSeconds(0.1f);
         foreach (char let in split[1])
         {
-            letterPress(keyboard[getPositionFromChar(let)]);
+            keyboard[getPositionFromChar(let)].OnInteract();
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(0.1f);
