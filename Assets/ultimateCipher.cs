@@ -181,6 +181,7 @@ public class ultimateCipher : MonoBehaviour {
         submitText.text = "1";
         //Generating random word
         answer = wordList[UnityEngine.Random.Range(0, wordList.Length)].ToUpper();
+        answer = "ADJUST";
         Debug.LogFormat("[Red Cipher #{0}] Generated Word: {1}", moduleId, answer);
        
         pages = new string[2][];
@@ -325,20 +326,20 @@ public class ultimateCipher : MonoBehaviour {
         Debug.LogFormat("[Red Cipher #{0}] Begin Playfair Encryption", moduleId);
         encrypt = PlayfairEnc(encrypt, kw1);
 
-        bool flag2 = true;
+        string alpha = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
         for (int aa = 0; aa < 6; aa++)
         {
             if (b[aa])
             {
                 pages[0][1] = pages[0][1] + "" + encrypt[aa];
                 encrypt = encrypt.Substring(0, aa) + "J" + encrypt.Substring(aa + 1);
-                flag2 = false;
+            }
+            else
+            {
+                pages[0][1] = pages[0][1] + "" + alpha[UnityEngine.Random.Range(0, alpha.Length)]; 
             }
         }
-        if(flag2)
-        {
-            pages[0][1] = "ABCDEFGHIKLMNOPQRSTUVWXYZ"[UnityEngine.Random.Range(0, 25)].ToString();
-        }
+        
         return encrypt;
     }
     string CMBifidEnc(string word, string kw1, string kw2)
