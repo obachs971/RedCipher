@@ -181,7 +181,7 @@ public class ultimateCipher : MonoBehaviour {
         submitText.text = "1";
         //Generating random word
         answer = wordList[UnityEngine.Random.Range(0, wordList.Length)].ToUpper();
-        answer = "ADJUST";
+        //answer = "ADJUST";
         Debug.LogFormat("[Red Cipher #{0}] Generated Word: {1}", moduleId, answer);
        
         pages = new string[2][];
