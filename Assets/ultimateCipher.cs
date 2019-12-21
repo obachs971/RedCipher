@@ -205,7 +205,7 @@ public class ultimateCipher : MonoBehaviour {
         {
             if (word[aa] == 'J')
             {
-                encrypt = encrypt + "ABCDEFGHIKLMNOPQRSTUVWXYZ"[UnityEngine.Random.Range(0, 26)];
+                encrypt = encrypt + "ABCDEFGHIKLMNOPQRSTUVWXYZ"[UnityEngine.Random.Range(0, 25)];
                 b[aa] = true;
             }
             else
@@ -505,9 +505,18 @@ public class ultimateCipher : MonoBehaviour {
         screenTexts[0].text = pages[page][0];
         screenTexts[1].text = pages[page][1];
         screenTexts[2].text = pages[page][2];
-        screenTexts[0].fontSize = 40;
-        screenTexts[1].fontSize = 40;
-        screenTexts[2].fontSize = 40;
+        if(page == 0)
+        {
+            screenTexts[0].fontSize = 40;
+            screenTexts[1].fontSize = 40;
+            screenTexts[2].fontSize = 40;
+        }
+        else
+        {
+            screenTexts[0].fontSize = 35;
+            screenTexts[1].fontSize = 35;
+            screenTexts[2].fontSize = 35;
+        }
         
     }
     void submitWord(KMSelectable submitButton)
@@ -551,6 +560,7 @@ public class ultimateCipher : MonoBehaviour {
                 screenTexts[0].text = "";
                 screenTexts[1].text = "";
                 screenTexts[2].text = pressed.GetComponentInChildren<TextMesh>().text;
+                screenTexts[2].fontSize = 40;
                 submitScreen = true;
             }
         }
