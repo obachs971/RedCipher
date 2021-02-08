@@ -258,9 +258,9 @@ public class ultimateCipher : MonoBehaviour {
                     break;
             }
         }
-        words[0] = getKey(words[0].ToUpper(), "ABCDEFGHIKLMNOPQRSTUVWXYZ", (snnums[0] - '0') % 2 == 1);
-        words[1] = getKey(words[1].ToUpper(), "ABCDEFGHIKLMNOPQRSTUVWXYZ", (snnums[1] - '0') % 2 == 0);
-        words[2] = getKey(words[2].ToUpper(), "ABCDEFGHIKLMNOPQRSTUVWXYZ", Bomb.GetSerialNumberNumbers().Last() % 2 == 1);
+        words[0] = getKey(words[0].Replace("J", "I"), "ABCDEFGHIKLMNOPQRSTUVWXYZ", (snnums[0] - '0') % 2 == 1);
+        words[1] = getKey(words[1].Replace("J", "I"), "ABCDEFGHIKLMNOPQRSTUVWXYZ", (snnums[1] - '0') % 2 == 0);
+        words[2] = getKey(words[2].Replace("J", "I"), "ABCDEFGHIKLMNOPQRSTUVWXYZ", Bomb.GetSerialNumberNumbers().Last() % 2 == 1);
 
         Debug.LogFormat("[Red Cipher #{0}] Trisquare Key 1: {1}", moduleId, words[0]);
         Debug.LogFormat("[Red Cipher #{0}] Trisquare Key 2: {1}", moduleId, words[1]);
